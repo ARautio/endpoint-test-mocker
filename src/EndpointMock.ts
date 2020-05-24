@@ -18,7 +18,7 @@ class EndpointMock {
     if (amount !== undefined) {
       this.amount = amount;
     }
-    if (seed != undefined) {
+    if (seed !== undefined) {
       this.seed = seed;
     }
     return this;
