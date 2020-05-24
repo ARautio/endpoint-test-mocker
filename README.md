@@ -10,10 +10,9 @@ Endpoint test mocker util to ease up mocking up endpoint calls when testing a se
 
 1. Create a new class which extends EndpointMock and create methods to mock your endpoint calls.
 
-```
+```javascript
 class UserAPI extends EndpointMock {
-
-	getUsers() {
+  getUsers() {
     return this.arrayBuilder(index => ({
       id: this.seed + index,
       username: helpers.fromArray(usernames, this.seed + index),
@@ -24,8 +23,8 @@ class UserAPI extends EndpointMock {
 
 2. Create tests for your code and use your class to mock the endpoint implementation.
 
-```
-const userAPIMock = new UserAPI()
+```javascript
+const userAPIMock = new UserAPI();
 userAPI.getUsers = jest.fn(() => userAPIMock.getUsers());
 ```
 
