@@ -6,7 +6,7 @@ Endpoint test mocker util to ease up mocking up endpoint calls when testing a se
 
 - Create realistic, random and consistent mocked data for your tests.
 - Keep mocked data code readable by writing only the data structure related code.
--
+- Array helpers generate random but consistent mocked data from given set of data.
 
 This package doesn't provide data mocking functions but it works very well with [chancejs](https://github.com/chancejs/chancejs) or [fakerjs](https://github.com/marak/Faker.js/).
 
