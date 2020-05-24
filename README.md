@@ -4,7 +4,11 @@ Endpoint test mocker util to ease up mocking up endpoint calls when testing a se
 
 ## Features
 
-- Create realistic mocks from endpoint responses. Same input will give same outputs but the content itself can be randomized with a seed.
+- Create realistic, random and consistent mocked data for your tests.
+- Keep mocked data code readable by writing only the data structure related code.
+-
+
+This package doesn't provide data mocking functions but it works very well with [chancejs](https://github.com/chancejs/chancejs) or [fakerjs](https://github.com/marak/Faker.js/).
 
 ## Install
 
@@ -17,11 +21,18 @@ npm install endpoint-test-mocker --save-dev
 1. Create a new class which extends EndpointMock and create methods to mock your endpoint calls.
 
 ```javascript
+import { EndpointMock, helpers } from 'endpoint-test-mocker';
+
+const username = ['User1', 'User2', 'User3'];
+const tags = ['coder', 'designer', 'developer', 'UX'];
+
 class UserAPI extends EndpointMock {
   getUsers() {
     return this.arrayBuilder(index => ({
       id: this.seed + index,
       username: helpers.fromArray(usernames, this.seed + index),
+      points: helpers.betweenIntegers({ min: 0, max: 20 }, this.seed + index),
+      tags: helpers.multipleFromArray(tags, 2, this.seed),
     }));
   }
 }
