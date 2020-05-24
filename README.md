@@ -6,6 +6,12 @@ Endpoint test mocker util to ease up mocking up endpoint calls when testing a se
 
 - Create realistic mocks from endpoint responses. Same input will give same outputs but the content itself can be randomized with a seed.
 
+## Install
+
+```
+npm install endpoint-test-mocker --save-dev
+```
+
 ## Usage
 
 1. Create a new class which extends EndpointMock and create methods to mock your endpoint calls.
