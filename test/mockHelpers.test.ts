@@ -1,4 +1,8 @@
-import { fromArray, multipleFromArray } from '../src/mockHelpers';
+import {
+  fromArray,
+  multipleFromArray,
+  betweenIntegers,
+} from '../src/mockHelpers';
 
 describe('fromArray', () => {
   it('should select item from array by seed', () => {
@@ -42,5 +46,32 @@ describe('multipleFromArray', () => {
   it('should select different item from array with  a different seed', () => {
     const testArray = [...Array(10)].map((_, index) => index);
     expect(multipleFromArray(testArray, 2, 10)).toEqual([8, 2]);
+  });
+});
+
+describe('fromArray', () => {
+  it('should select item from array by seed', () => {
+    const testArray = [...Array(10)].map((_, index) => index);
+    expect(fromArray(testArray, 1)).toEqual(2);
+  });
+
+  it('should select item from array by default seed', () => {
+    const testArray = [...Array(10)].map((_, index) => index);
+    expect(fromArray(testArray)).toEqual(2);
+  });
+
+  it('should select different item from array with  a different seed', () => {
+    const testArray = [...Array(10)].map((_, index) => index);
+    expect(fromArray(testArray, 2)).toEqual(6);
+  });
+});
+
+describe('betweenIntegers', () => {
+  it('should select integer between given range', () => {
+    expect(betweenIntegers({ min: 1, max: 2 })).toEqual(1);
+  });
+
+  it('should select integer between given range', () => {
+    expect(betweenIntegers({ min: 10, max: 10 })).toEqual(10);
   });
 });
