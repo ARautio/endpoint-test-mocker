@@ -45,7 +45,7 @@ const userAPIMock = new UserAPI();
 userAPI.getUsers = jest.fn(() => userAPIMock.getUsers());
 ```
 
-For example see [example/SimpleExample](https://github.com/ARautio/endpoint-test-mocker/tree/master/examples/SimpleExample)
+For example see [examples/SimpleExample](https://github.com/ARautio/endpoint-test-mocker/tree/master/examples/SimpleExample)
 
 ## Author
 
