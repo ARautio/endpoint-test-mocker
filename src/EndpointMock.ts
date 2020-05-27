@@ -6,16 +6,10 @@ import { multipleFromArray } from './mockHelpers';
 class EndpointMock {
   seed: number;
   amount: number;
-  arrayBuilder: (item: (index: number) => any) => any[];
 
   constructor(seed: number | string = 1) {
     this.seed = convertToSeed(seed);
     this.amount = 1;
-
-    this.arrayBuilder = (item: (index: number) => any) => {
-      const indexes = [...Array(this.amount)].map((_, index) => item(index));
-      return multipleFromArray(indexes, this.amount, this.seed);
-    };
   }
 
   setValue({ amount, seed }: { amount?: number; seed?: number | string }) {
@@ -26,6 +20,13 @@ class EndpointMock {
       this.seed = convertToSeed(seed);
     }
     return this;
+  }
+
+  arrayBuilder(item: (index: number) => any) {
+    const indexes = Array.apply(null, Array(this.amount)).map((_, index) =>
+      item(index)
+    );
+    return multipleFromArray(indexes, this.amount, this.seed);
   }
 }
 
