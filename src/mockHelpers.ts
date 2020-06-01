@@ -10,9 +10,14 @@ const getRandomInt = (max: number, seed: number) => {
  * fromArray
  * @param array
  * @param seed
+ * @param forceIndex
  */
-export const fromArray = (array: any, seed: any = DEFAULT_SEED) => {
-  return array[getRandomInt(array.length - 1, seed)];
+export const fromArray = (
+  array: any,
+  seed: any = DEFAULT_SEED,
+  forceIndex: number
+) => {
+  return array[forceIndex || getRandomInt(array.length - 1, seed)];
 };
 
 /**
